@@ -8,10 +8,8 @@ public class Physiotherapist {
     private String phone;
     private String[] specialties;
     private List<Treatment> treatmentTimetable;
-    private static int idCounter = 1; // Static counter for auto-increment
-
-
-    // Constructor
+    private static int idCounter = 1; 
+    
     public Physiotherapist(String name, String address, String phone, String[] specialties, List<Treatment> treatmentTimetable) {
         this.id = idCounter++; 
         this.name = name;
@@ -19,5 +17,22 @@ public class Physiotherapist {
         this.phone = phone;
         this.specialties = specialties;
         this.treatmentTimetable = treatmentTimetable;
+    }
+    
+    public int getId() { return id; }
+    public String getAddress() { return address; }
+    public String getName() { return name; }
+    public String getPhone() { return phone; }
+
+    public static int getIdCounter() {
+        return idCounter;
+    }
+
+    public static void setIdCounter(int idCounter) {
+        Patient.idCounter = idCounter;
+    }
+    @Override
+    public String toString() {
+        return "Patient #" + id + ": " + name + ", " + address + ", " + phone;
     }
 }
