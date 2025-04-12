@@ -14,6 +14,7 @@ public class Booking {
         this.treatment = treatment;
         this.attended = false; 
     }
+
     public String getBookingId() { return bookingId; }
     public Patient getPatient() { return patient; }
     public Physiotherapist getTherapist() { return therapist; }
