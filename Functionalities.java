@@ -17,4 +17,27 @@ public class Functionalities {
         System.out.println("Patient added.");
     }
 
+    public void removePatient() {
+        System.out.print("Enter patient name to remove: ");
+        String name = scanner.nextLine();
+    
+        Patient patientToRemove = patients.stream()
+                .filter(p -> p.getName().equalsIgnoreCase(name))
+                .findFirst()
+                .orElse(null);
+    
+        if (patientToRemove != null) {
+            patients.remove(patientToRemove);
+            System.out.println("Patient removed: " + name);
+    
+            // Remove any bookings associated with the removed patient
+            bookings.removeIf(booking -> booking.getPatient().equals(patientToRemove));
+            System.out.println("Associated bookings removed.");
+    
+        } else {
+            System.out.println("Patient not found.");
+        }
+    }
+   
+
 }
