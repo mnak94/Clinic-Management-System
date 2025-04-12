@@ -8,8 +8,8 @@ public class Physiotherapist {
     private String phone;
     private String[] specialties;
     private List<Treatment> treatmentTimetable;
-    private static int idCounter = 1; 
-    
+    private static int idCounter = 1; //static counter for auto-increment
+
     public Physiotherapist(String name, String address, String phone, String[] specialties, List<Treatment> treatmentTimetable) {
         this.id = idCounter++; 
         this.name = name;
@@ -18,21 +18,49 @@ public class Physiotherapist {
         this.specialties = specialties;
         this.treatmentTimetable = treatmentTimetable;
     }
-    
-    public int getId() { return id; }
-    public String getAddress() { return address; }
-    public String getName() { return name; }
-    public String getPhone() { return phone; }
 
-    public static int getIdCounter() {
-        return idCounter;
+    public int getId() {
+        return id;
     }
 
-    public static void setIdCounter(int idCounter) {
-        Patient.idCounter = idCounter;
+    public String getName() {
+        return name;
     }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String[] getSpecialties() {
+        return specialties;
+    }
+
+    public List<Treatment> getTreatmentTimetable() {
+        return treatmentTimetable;
+    }
+    public List<String> getExpertiseAreas() {
+        return Arrays.asList(specialties);
+    }
+
+    public void setTreatmentTimetable(List<Treatment> treatmentTimetable) {
+        this.treatmentTimetable = treatmentTimetable;
+    }
+
+    public List<Treatment> getTreatments() {
+        return treatmentTimetable; 
+    }
+
+    public String getSpecialtiesAsString() {
+        return Arrays.toString(specialties);
+    }
+
     @Override
     public String toString() {
-        return "Patient #" + id + ": " + name + ", " + address + ", " + phone;
+        return "Physiotherapist ID: " + id + "\nName: " + name + "\nAddress: " + address +
+               "\nPhone: " + phone + "\nSpecialties: " + getSpecialtiesAsString();
     }
 }
